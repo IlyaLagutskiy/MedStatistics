@@ -7,6 +7,7 @@ namespace MedStatistics
 {
     static class Program
     {
+        public static string DataSource = "MedStatistics.db";
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>

@@ -9,17 +9,16 @@ using System.Windows.Forms;
 
 namespace MedStatistics
 {
-    public partial class MainForm : Form
+    public partial class RecordsList : Form
     {
-        public MainForm()
+        public RecordsList(int type)
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            Record record = new Record(true,1);
-            record.ShowDialog();
+            button3.Enabled = checkBox1.Checked;
         }
     }
 }
