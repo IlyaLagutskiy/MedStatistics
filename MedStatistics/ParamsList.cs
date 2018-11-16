@@ -17,14 +17,15 @@ namespace MedStatistics
     class ParamsList
     {
 
+        private readonly int _type;
         public int Count { get; private set; }
-        public int Type { get; private set; }
 
-        public List<Params> list = new List<Params>();
+        public List<Params> List = new List<Params>();
 
         public ParamsList(int type)
         {
-            Type = type;
+            _type = type;
+            Count = 0;
         }
 
         public List<Params> GetNameList()
@@ -34,7 +35,7 @@ namespace MedStatistics
 
             SQLiteCommand command = new SQLiteCommand();
             command.CommandText = "SELECT * FROM Params WHERE Type = @type;";
-            command.Parameters.Add("@type", DbType.Int32).Value = Type;
+            command.Parameters.Add("@type", DbType.Int32).Value = _type;
             command.Connection = connection;
             SQLiteDataReader dataReader;
 
@@ -42,14 +43,14 @@ namespace MedStatistics
             {
                 connection.Open();
                 dataReader = command.ExecuteReader();
-                Count = dataReader.FieldCount;
                 Params temp;
                 while (dataReader.Read())
                 {
                     temp.Type = dataReader.GetInt32(0);
                     temp.Code = dataReader.GetString(1);
                     temp.Name = dataReader.GetString(2);
-                    list.Add(temp);
+                    List.Add(temp);
+                    Count++;
                 }
 
                 dataReader.Close();
@@ -64,13 +65,13 @@ namespace MedStatistics
                 connection.Dispose();
             }
 
-            return list;
+            return List;
         }
 
         public string ToParamsString()
         {
             string _params = "";
-            foreach (var l in list)
+            foreach (var l in List)
             {
                 _params += $", '{l.Code}'";
             }

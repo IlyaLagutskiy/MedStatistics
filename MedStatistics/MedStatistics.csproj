@@ -91,6 +91,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ParamsList.cs" />
+    <Compile Include="Intervals.cs" />
     <Compile Include="Record.cs">
       <SubType>Form</SubType>
     </Compile>

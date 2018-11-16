@@ -18,8 +18,14 @@ namespace MedStatistics
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Record record = new Record(true,1);
+            Record record = new Record(1);
             record.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            RecordsList recordsList = new RecordsList(1);
+            recordsList.ShowDialog();
         }
     }
 }
