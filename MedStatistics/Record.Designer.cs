@@ -1,11 +1,14 @@
-﻿namespace MedStatistics
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace MedStatistics
 {
     partial class Record
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -29,15 +32,15 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,12 +58,38 @@
             this.dataGridView1.Location = new System.Drawing.Point(13, 47);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(829, 371);
+            this.dataGridView1.Size = new System.Drawing.Size(850, 371);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // Number
+            // 
+            this.Number.HeaderText = "№";
+            this.Number.Name = "Number";
+            this.Number.ReadOnly = true;
+            this.Number.Width = 30;
+            // 
+            // Code
+            // 
+            this.Code.HeaderText = "Code";
+            this.Code.Name = "Code";
+            this.Code.ReadOnly = true;
+            this.Code.Visible = false;
+            // 
+            // PName
+            // 
+            this.PName.HeaderText = "Наименование";
+            this.PName.Name = "PName";
+            this.PName.ReadOnly = true;
+            this.PName.Width = 650;
+            // 
+            // Data
+            // 
+            this.Data.HeaderText = "Значение";
+            this.Data.Name = "Data";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(849, 395);
+            this.button1.Location = new System.Drawing.Point(870, 395);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(115, 23);
             this.button1.TabIndex = 1;
@@ -134,37 +163,11 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Год";
             // 
-            // Number
-            // 
-            this.Number.HeaderText = "№";
-            this.Number.Name = "Number";
-            this.Number.ReadOnly = true;
-            this.Number.Width = 30;
-            // 
-            // Code
-            // 
-            this.Code.HeaderText = "Code";
-            this.Code.Name = "Code";
-            this.Code.ReadOnly = true;
-            this.Code.Visible = false;
-            // 
-            // PName
-            // 
-            this.PName.HeaderText = "Наименование";
-            this.PName.Name = "PName";
-            this.PName.ReadOnly = true;
-            this.PName.Width = 650;
-            // 
-            // Data
-            // 
-            this.Data.HeaderText = "Значение";
-            this.Data.Name = "Data";
-            // 
             // Record
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(976, 435);
+            this.ClientSize = new System.Drawing.Size(997, 435);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox2);
@@ -184,15 +187,15 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Number;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Data;
+        private DataGridView dataGridView1;
+        private Button button1;
+        private ComboBox comboBox1;
+        private ComboBox comboBox2;
+        private Label label1;
+        private Label label2;
+        private DataGridViewTextBoxColumn Number;
+        private DataGridViewTextBoxColumn Code;
+        private DataGridViewTextBoxColumn PName;
+        private DataGridViewTextBoxColumn Data;
     }
 }

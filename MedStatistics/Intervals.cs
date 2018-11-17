@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
-
+using System.Windows.Forms;
 
 namespace MedStatistics
 {
@@ -48,7 +48,7 @@ namespace MedStatistics
             }
             catch (Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
             }
             finally
             {

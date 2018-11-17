@@ -56,12 +56,20 @@ namespace MedStatistics
         private void button3_Click(object sender, EventArgs e)
         {
             DataList dataList = new DataList(_type);
-            dataList.Year = int.Parse(dataGridView1.CurrentRow.Cells["Year"].Value.ToString());
-            dataList.Period = dataGridView1.CurrentRow.Cells["Period"].Value.ToString();
-            dataList.DeleteData();
-            MessageBox.Show(@"Данные удалены");
-            checkBox1.Checked = false;
-            LoadData();
+            if (dataGridView1.CurrentRow != null)
+            {
+                dataList.Year = int.Parse(dataGridView1.CurrentRow.Cells["Year"].Value.ToString());
+                dataList.Period = dataGridView1.CurrentRow.Cells["Period"].Value.ToString();
+                dataList.DeleteData();
+                MessageBox.Show(@"Данные удалены");
+                checkBox1.Checked = false;
+                LoadData();
+            }
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            button1_Click(sender, e);
         }
     }
 }

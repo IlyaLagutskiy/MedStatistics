@@ -32,12 +32,14 @@ namespace MedStatistics
         {
             _paramsList = new ParamsList(_type);
             List<Params> list = _paramsList.GetNameList();
-            for (int i = 0; i < list.Count; i++)
+            int i = 0;
+            foreach (var l in list)
             {
                 dataGridView1.Rows.Add();
                 dataGridView1.Rows[i].Cells["Number"].Value = i + 1;
-                dataGridView1.Rows[i].Cells["Code"].Value = list[i].Code;
-                dataGridView1.Rows[i].Cells["PName"].Value = list[i].Name;
+                dataGridView1.Rows[i].Cells["Code"].Value = l.Code;
+                dataGridView1.Rows[i].Cells["PName"].Value = l.Name;
+                i++;
             }
             if (_isCreating)
             {
@@ -54,9 +56,9 @@ namespace MedStatistics
                 _dataList.Year = _interval.Year;
                 _dataList.Period = _interval.Period;
                 _dataList.ReadData();
-                for (int i = 0; i < list.Count; i++)
+                for (int j = 0; j < list.Count; j++)
                 {
-                    dataGridView1.Rows[i].Cells["Data"].Value = _dataList.Data[i];
+                    dataGridView1.Rows[j].Cells["Data"].Value = _dataList.Data[j];
                 }
             }
 
@@ -64,6 +66,8 @@ namespace MedStatistics
 
         private void button1_Click(object sender, EventArgs e)
         {
+            bool result;
+
             List<double> data = new List<double>();
             try
             {
@@ -89,15 +93,17 @@ namespace MedStatistics
             dataList.Data = data;
             if (_isCreating)
             {
-                dataList.WriteData();
+                result = dataList.WriteData();
             }
             else
             {
-                dataList.CorrectData();
+                result = dataList.CorrectData();
             }
 
-            MessageBox.Show(@"Сохранено");
-
+            if (result)
+            {
+                MessageBox.Show(@"Сохранено");
+            }
         }
     }
 }
